@@ -14,14 +14,28 @@ function writeResultsToTxt(fileOut, results, fileIn1, fileIn2)
         fileIn1 string {mustBeTextScalar}
         fileIn2 string {mustBeTextScalar}
     end
+    
+    wMethodsSloNames = configureDictionary('string', 'string');
+    wMethodsSloNames("L1") = "metoda L1";
+    wMethodsSloNames("L1-L2") = "metoda L1-L2";
+    wMethodsSloNames("Lp") = "metoda Lp";
+    wMethodsSloNames("Huber") = "Huberjeva metoda";
+    wMethodsSloNames("HuberMod") = "modificirana Huberjeva metoda";
+    wMethodsSloNames("Fair") = "Fairova metoda";
+    wMethodsSloNames("Cauchy") = "Cauchyjeva metoda";
+    wMethodsSloNames("Welsch") = "Welscheva metoda";
+    wMethodsSloNames("Tukey") = "Tukeyeva metoda";
+    wMethodsSloNames("Hampel") = "Hampelova metoda";
+    wMethodsSloNames("German-McClure") = "German-McClurejeva metoda";
+    wMethodsSloNames("danska") = "danska metoda";
 
-    fout = fopen(fileOut, 'wt');
-
+    fout = fopen(fileOut, 'wt', 'n', 'UTF-8');
+    
     fprintf(fout, '*** DEFORMACIJSKA ANALIZA Z ROBUSTNIMI METODAMI ***\n\n');
     fprintf(fout, 'datoteka prve terminske izmere : %s\n', fileIn1);
     fprintf(fout, 'datoteka druge terminske izmere: %s\n', fileIn2);
     fprintf(fout, '\n');
-    fprintf(fout, 'Metoda dodeljevanja uteži: %s\n', results.wFunctionName);
+    fprintf(fout, 'Metoda dodeljevanja uteži: %s\n', wMethodsSloNames(results.wFunctionName));
     switch results.wFunctionName
         case 'Lp'
             fprintf(fout, '    * parameter c = %g', results.cParameter);
