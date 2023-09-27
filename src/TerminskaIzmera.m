@@ -1,6 +1,9 @@
 classdef TerminskaIzmera
-    %TERMINSKAIZMERA Summary of this class goes here
-    %   Detailed explanation goes here
+    % RAZRED TERMINSKAIZMERA
+    %   V razred TerminskaIzmera shranimo podatke, ki so potrebni
+    %   za izvedbo deformacijske analize z robustnimi metodami.
+    %   Trenutno je implementirano branje podatkov iz datoteke *.daf,
+    %   možna pa je enostavna implementacija branja iz drugih formatov.
     
     properties
         points
@@ -100,6 +103,9 @@ classdef TerminskaIzmera
         
         
     methods(Static)
+        % --------------------------------------------------------------
+        % KONSTRUKTOR, KI NAREDI OBJEKT NA PODLAGI VHODNE *.daf DATOTEKE
+        % --------------------------------------------------------------
         function obj = fromDafFile(dafFile)
                 arguments
                     dafFile {mustBeFile}

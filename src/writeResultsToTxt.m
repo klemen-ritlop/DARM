@@ -4,7 +4,7 @@ function writeResultsToTxt(fileOut, results, fileIn1, fileIn2)
 % Inputs:
 %    fileOut : ime izhodne datoteke
 %    results : rezultati funkcije DARM
-%    fileIn1 : ime vhodne datoteke prve terminske izmere
+%    fileIn1 : ime vhodne datoteke prve  terminske izmere
 %    fileIn2 : ime vhodne datoteke druge terminske izmere
 
 
